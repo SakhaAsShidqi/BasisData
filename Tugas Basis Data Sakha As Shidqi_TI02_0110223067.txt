@@ -1,0 +1,136 @@
+Setting environment for using XAMPP for Windows.
+Sakha@DESKTOP-6VP1IFA c:\xampp2
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 13
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
++-----------------------+
+| Database              |
++-----------------------+
+| dbkuliahsakha         |
+| dbkuliahsakhaasshidqi |
+| dbti02                |
+| information_schema    |
+| mysql                 |
+| performance_schema    |
+| phpmyadmin            |
+| test                  |
++-----------------------+
+8 rows in set (0.003 sec)
+
+MariaDB [(none)]> USE dbkuliahsakha;
+Database changed
+MariaDB [dbkuliahsakha]> SHOW TABLES;
++-------------------------+
+| Tables_in_dbkuliahsakha |
++-------------------------+
+| jurusan                 |
+| mahasiswa               |
++-------------------------+
+2 rows in set (0.002 sec)
+
+MariaDB [dbkuliahsakha]> DESC jurusan;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nama  | varchar(50) | NO   | UNI | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.044 sec)
+
+MariaDB [dbkuliahsakha]> SELECT * FROM jurusan;
++----+---------------------+
+| id | nama                |
++----+---------------------+
+|  1 | Teknik Geologi      |
+|  5 | Teknik Informatika  |
+|  3 | Teknik Mesin        |
+|  2 | Teknik Pertambangan |
+|  4 | Teknik Sipil        |
++----+---------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [dbkuliahsakha]> DESC mahasiswa;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | int(11)      | NO   | PRI | NULL    | auto_increment |
+| nim       | int(11)      | NO   |     | NULL    |                |
+| nama      | varchar(255) | NO   |     | NULL    |                |
+| alamat    | varchar(255) | NO   |     | NULL    |                |
+| idjurusan | int(11)      | NO   |     | NULL    |                |
+| foto      | varchar(255) | NO   |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+6 rows in set (0.038 sec)
+
+MariaDB [dbkuliahsakha]> INSERT INTO mahasiswa (nim,nama,alamat,idjurusan,foto) VALUES
+    -> (0110223067,'Sakha As Shidqi','Perum Telaga Kahuripan Candraloka',1,'saka.jpg');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [dbkuliahsakha]> SELECT * FROM mahasiswa;
++----+-----------+-----------------+-----------------------------------+-----------+----------+
+| id | nim       | nama            | alamat                            | idjurusan | foto     |
++----+-----------+-----------------+-----------------------------------+-----------+----------+
+|  1 | 110223067 | Sakha As Shidqi | Perum Telaga Kahuripan Candraloka |         1 | saka.jpg |
++----+-----------+-----------------+-----------------------------------+-----------+----------+
+1 row in set (0.001 sec)
+
+MariaDB [dbkuliahsakha]> DESC mahasiswa;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | int(11)      | NO   | PRI | NULL    | auto_increment |
+| nim       | int(11)      | NO   |     | NULL    |                |
+| nama      | varchar(255) | NO   |     | NULL    |                |
+| alamat    | varchar(255) | NO   |     | NULL    |                |
+| idjurusan | int(11)      | NO   |     | NULL    |                |
+| foto      | varchar(255) | NO   |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+6 rows in set (0.042 sec)
+
+MariaDB [dbkuliahsakha]> INSERT INTO mahasiswa (nim,nama,alamat,idjurusan,foto) VALUES
+    -> (0110223075,'Nur Fadilah','Jabon Parung',3,'kebot.jpg');
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [dbkuliahsakha]> SELECT * FROM mahasiswa;
++----+-----------+-----------------+-----------------------------------+-----------+-----------+
+| id | nim       | nama            | alamat                            | idjurusan | foto      |
++----+-----------+-----------------+-----------------------------------+-----------+-----------+
+|  1 | 110223067 | Sakha As Shidqi | Perum Telaga Kahuripan Candraloka |         1 | saka.jpg  |
+|  2 | 110223075 | Nur Fadilah     | Jabon Parung                      |         3 | kebot.jpg |
++----+-----------+-----------------+-----------------------------------+-----------+-----------+
+2 rows in set (0.003 sec)
+
+MariaDB [dbkuliahsakha]> INSERT INTO mahasiswa (nim,nama,alamat,idjurusan,foto) VALUES
+    -> (0110223070,'Haikal Sulton','Cilodong',4,'haikal.jpg');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [dbkuliahsakha]> INSERT INTO mahasiswa (nim,nama,alamat,idjurusan,foto) VALUES
+    -> (0110223080,'Muhammad Nizar','Depok',5,'nizar.jpg');
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [dbkuliahsakha]> INSERT INTO mahasiswa (nim,nama,alamat,idjurusan,foto) VALUES
+    -> (0110223050,'Muhammad Zidan','Cilodong',2,'zidan.jpg');
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [dbkuliahsakha]> SELECT * FROM mahasiswa;
++----+-----------+-----------------+-----------------------------------+-----------+------------+
+| id | nim       | nama            | alamat                            | idjurusan | foto       |
++----+-----------+-----------------+-----------------------------------+-----------+------------+
+|  1 | 110223067 | Sakha As Shidqi | Perum Telaga Kahuripan Candraloka |         1 | saka.jpg   |
+|  2 | 110223075 | Nur Fadilah     | Jabon Parung                      |         3 | kebot.jpg  |
+|  3 | 110223070 | Haikal Sulton   | Cilodong                          |         4 | haikal.jpg |
+|  4 | 110223080 | Muhammad Nizar  | Depok                             |         5 | nizar.jpg  |
+|  5 | 110223050 | Muhammad Zidan  | Cilodong                          |         2 | zidan.jpg  |
++----+-----------+-----------------+-----------------------------------+-----------+------------+
+5 rows in set (0.001 sec)
+
+MariaDB [dbkuliahsakha]> \q
+Bye
